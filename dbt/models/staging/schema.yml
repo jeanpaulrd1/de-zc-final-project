@@ -1,0 +1,221 @@
+version: 2
+
+sources:
+  - name: staging
+    database: airy-digit-410117
+    schema: fifa_wc_2022
+
+    tables:
+      - name: competitions
+      - name: matches
+      - name: events
+
+models:
+  - name: stg_competitions
+    description: ""
+    columns:
+      - name: competition_id
+        data_type: int64
+        description: ""
+
+      - name: season_id
+        data_type: int64
+        description: ""
+
+      - name: country_name
+        data_type: string
+        description: ""
+
+      - name: competition_name
+        data_type: string
+        description: ""
+
+      - name: competition_gender
+        data_type: string
+        description: ""
+
+      - name: competition_international
+        data_type: string
+        description: ""
+
+      - name: season_name
+        data_type: string
+        description: ""
+
+  - name: stg_matches
+    description: ""
+    columns:
+      - name: match_id
+        data_type: int64
+        description: ""
+
+      - name: match_date
+        data_type: timestamp
+        description: ""
+
+      - name: kick_off
+        data_type: string
+        description: ""
+
+      - name: competition
+        data_type: string
+        description: ""
+        
+      - name: season
+        data_type: string
+        description: ""
+
+      - name: home_team
+        data_type: string
+        description: ""
+
+      - name: away_team
+        data_type: string
+        description: ""
+
+      - name: home_score
+        data_type: int64
+        description: ""
+
+      - name: away_score
+        data_type: int64
+        description: ""
+
+      - name: home_managers
+        data_type: string
+        description: ""
+
+      - name: away_managers
+        data_type: string
+        description: ""
+
+      - name: competition_stage
+        data_type: string
+        description: ""
+
+      - name: stadium
+        data_type: string
+        description: ""
+
+      - name: referee
+        data_type: string
+        description: ""
+
+  - name: stg_events
+    description: ""
+    columns:
+      - name: id
+        data_type: string
+        description: ""
+
+      - name: match_id
+        data_type: int64
+        description: ""
+
+      - name: duration
+        data_type: float
+        description: ""
+
+      - name: foul_commited_card
+        data_type: string
+        description: ""
+
+      - name: foul_commited_penalty
+        data_type: boolean
+        description: ""
+
+      - name: foul_won_advantage
+        data_type: boolean
+        description: ""
+
+      - name: interception_outcome
+        data_type: string
+        description: ""
+
+      - name: minute
+        data_type: int64
+        description: ""
+
+      - name: pass_goal_assist
+        data_type: boolean
+        description: ""
+
+      - name: pass_recipient
+        data_type: string
+        description: ""
+
+      - name: pass_technique
+        data_type: string
+        description: ""
+
+      - name: pass_type
+        data_type: string
+        description: ""
+
+      - name: period
+        data_type: int64
+        description: ""
+
+      - name: play_patterm
+        data_type: string
+        description: ""
+
+      - name: player
+        data_type: string
+        description: ""
+
+      - name: player_id
+        data_type: int64
+        description: ""
+
+      - name: position
+        data_type: string
+        description: ""
+
+      - name: possession
+        data_type: int64
+        description: ""
+
+      - name: possession_team
+        data_type: string
+        description: ""
+
+      - name: possession_team_id
+        data_type: int64
+        description: ""
+
+      - name: related_events
+        data_type: string
+        description: ""
+
+      - name: team
+        data_type: string
+        description: ""
+
+      - name: type
+        data_type: string
+        description: ""
+
+      - name: shot_outcome
+        data_type: string
+        description: ""
+
+      - name: shot_statsbomb_xg
+        data_type: float
+        description: ""
+
+      - name: shot_technique
+        data_type: string
+        description: ""
+
+      - name: shot_type
+        data_type: string
+        description: ""
+
+      - name: fould_committed_type
+        data_type: string
+        description: ""
+
+      - name: duel_outcome
+        data_type: string
+        description: ""
