@@ -1,0 +1,135 @@
+version: 2
+
+models:
+  - name: fact_events
+    description: >
+      
+    columns:
+      - name: competition
+        data_type: string
+        description: "competition name"
+
+      - name: home_team
+        data_type: string
+        description: "home team name"
+
+      - name: away_team
+        data_type: string
+        description: "away team name"
+
+      - name: home_score
+        data_type: int64
+        description: "goals scored by home team"
+
+      - name: away_score
+        data_type: int64
+        description: "goals scored by away team"
+
+      - name: home_managers
+        data_type: string
+        description: "home team coach"
+
+      - name: away_managers
+        data_type: string
+        description: "away team coach"
+
+      - name: competition_stage
+        data_type: int64
+        description: "competition name stage"
+
+      - name: stadium
+        data_type: string
+        description: "stadium where the match was played"
+
+      - name: referee
+        data_type: string
+        description: "match referee"
+
+      - name: duration
+        data_type: numeric
+        description: "event duration"
+
+      - name: minute
+        data_type: int64
+        description: "minute in which event happened"
+
+      - name: foul_committed_card
+        data_type: string
+        description: "card for foul committed"
+
+      - name: foul_committed_penalty
+        data_type: string
+        description: "indicator if penalty was awarded due foul"
+
+      - name: foul_committed_type
+        data_type: string
+        description: "foul type"
+
+      - name: pass_goal_assist
+        data_type: string
+        description: "indicator if pass was an assist"
+
+      - name: pass_recipient
+        data_type: string
+        description: "player pass recipient "
+
+      - name: pass_technique
+        data_type: string
+        description: "technique used to pass"
+
+      - name: pass_type
+        data_type: string
+        description: "pass type"
+
+      - name: period
+        data_type: int64
+        description: "match period"
+
+      - name: play_pattern
+        data_type: string
+        description: "play pattern related to event"
+        
+      - name: player_id
+        data_type: int64
+        description: "player id involved in the event"
+
+      - name: player
+        data_type: string
+        description: "player involved in the event"
+
+      - name: position
+        data_type: string
+        description: "player position"
+        
+      - name: team
+        data_type: string
+        description: "player team involved in the event"
+
+      - name: type
+        data_type: string
+        description: "event type"
+
+      - name: shot_outcome
+        data_type: string
+        description: "shot result"
+
+      - name: shot_type
+        data_type: string
+        description: "shot type"
+
+      - name: duel_outcome
+        data_type: string
+        description: "shot type"
+
+      - name: shot_technique
+        data_type: string
+        description: "shot technique"
+
+      - name: shot_statsbomb_xg
+        data_type: numeric
+        description: "shot expected goals measure"
+  - name: dm_events_per_player
+    description:
+    
+  - name: dm_events_per_match
+    description:
