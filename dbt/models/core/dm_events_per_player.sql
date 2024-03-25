@@ -1,7 +1,6 @@
 {{
     config(
         materialized='table',
-        cluster_by = "player_team",
         partition_by={
            "field": "player_id",
            "data_type": "int64",
@@ -61,6 +60,24 @@ SELECT
 FROM (SELECT duel_outcome, player, player_id, team FROM {{ ref('fact_events') }}) 
 PIVOT ( 
 count(*) FOR duel_outcome IN ('Success Out','Lost In Play','Success In Play','Won','Lost Out'))
+),
+card_per_player AS(
+SELECT 
+        player
+        ,player_id
+        ,`Red Card` as red_card
+        ,`Second Yellow` as second_yellow_card
+        ,`Yellow Card` as yellow_card
+FROM (SELECT foul_committed_card, player, player_id, team FROM {{ ref('fact_events') }}) 
+PIVOT ( 
+count(*) FOR foul_committed_card IN ('Red Card','Second Yellow','Yellow Card'))
+),
+player_positions AS(
+SELECT 
+        player_id
+        ,MAX(position) as position
+FROM {{ ref('fact_events') }}
+GROUP BY player_id
 )
 SELECT 
     so.player_id
@@ -89,6 +106,12 @@ SELECT
     ,dp.succes_in_play_duel
     ,dp.won_duel
     ,dp.lost_out_duel
+    ,cp.yellow_card
+    ,cp.second_yellow_card
+    ,cp.red_card
+    ,pp.position
 FROM shout_outcome_per_player so
 JOIN event_type_per_player et on so.player_id = et.player_id
 JOIN duel_outcome_per_player dp on so.player_id = dp.player_id
+JOIN card_per_player cp on cp.player_id = so.player_id
+JOIN player_positions pp on et.player_id = pp.player_id

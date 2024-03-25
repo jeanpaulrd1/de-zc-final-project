@@ -6,7 +6,7 @@ source as (
 
 ),
 
-renamed as (
+stg_competitions as (
 
     select
         competition_id,
@@ -21,4 +21,4 @@ renamed as (
 
 )
 
-select * from renamed
+select * from stg_competitions

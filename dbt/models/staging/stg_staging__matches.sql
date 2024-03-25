@@ -11,7 +11,7 @@ source as (
 
 ),
 
-renamed as (
+stg_matches as (
 
     select
         match_id,
@@ -33,4 +33,4 @@ renamed as (
 
 )
 
-select * from renamed
+select * from stg_matches

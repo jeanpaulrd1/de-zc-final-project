@@ -11,7 +11,7 @@ source as (
 
 ),
 
-renamed as (
+stg_events as (
 
     select
         id,
@@ -46,4 +46,4 @@ renamed as (
 
 )
 
-select * from renamed
+select * from stg_events

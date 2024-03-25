@@ -97,6 +97,10 @@ models:
         data_type: string
         description: "player involved in the event"
 
+      - name: position
+        data_type: string
+        description: "player position"
+        
       - name: team
         data_type: string
         description: "player team involved in the event"
@@ -124,8 +128,8 @@ models:
       - name: shot_statsbomb_xg
         data_type: numeric
         description: "shot expected goals measure"
-  - name: dm_events_by_player
-    description: >
-      Aggregated table of all taxi trips corresponding to both service zones (Green and yellow) per pickup zone, month and service.
-      The table contains monthly sums of the fare elements used to calculate the monthly revenue. 
-      The table contains also monthly indicators like number of trips, and average trip distance.
+  - name: dm_events_per_player
+    description:
+    
+  - name: dm_events_per_match
+    description:
