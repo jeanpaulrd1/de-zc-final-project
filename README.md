@@ -25,7 +25,7 @@ Basically, main purpose of this project is try to understand what happened in Wo
 3. What is the position with the most stoppage injuries?
 
 ## Project architecture
-Stats Bomb make available a Python library [statsbombpy](https://github.com/statsbomb/statsbombpy), to access data more easily. So that, I used data is pulled from there as source for this project.
+Stats Bomb make available a [Python library](https://github.com/statsbomb/statsbombpy), to access data more easily. So that, I used data pulled from there as source for this project.
 
 First the competitions data is obtained, then the matches data and used to filter the world cup match events.
 Once we have the data, it's loaded as is into Google Cloud storage bucket and also applied some cleansing and transformation process before to be loaded into BigQuery tables.
