@@ -40,6 +40,8 @@ It is important to mention that a Terraform script was used to programmatically 
 </p>
 
 ## Dashboard
+If you want to check the dashboard, [click here](https://lookerstudio.google.com/s/kyxZIS-S-OM).
+
 Here we have 5 tiles:
 - Direct influence on goals per player: The aim is to know the importance of a player for his team based on his influence on the goals scored.
 - Events per match: A quick summary of events by match.
