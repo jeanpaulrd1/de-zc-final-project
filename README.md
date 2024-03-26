@@ -38,3 +38,13 @@ It is important to mention that a Terraform script was used to programmatically 
 <p align="center">
   <img src="https://github.com/jeanpaulrd1/de-zc-final-project/assets/19482586/d3a76531-7c8e-456c-aa20-3c172e45abad" width="80%" align="center"/>
 </p>
+
+## Dashboard
+Here we have 5 tiles:
+- Direct influence on goals per player: The aim is to know the importance of a player for his team based on his influence on the goals scored.
+- Events per match: A quick summary of events by match.
+- Injury Stoppage per player: Looking for player with hightest injury stoppage or "wasting times" number.
+- Defensive actions per player: A quick summary of defensive actions per player including Interceptions, Clearance, Pressure and Ball recovery
+- Fouls and card per player: Looking for most dirtiest players during Fifa World Cup Qatar 2022.
+  
+![image](https://github.com/jeanpaulrd1/de-zc-final-project/assets/19482586/ab5f0178-546d-4fd7-94ee-9854414dad37)
