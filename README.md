@@ -20,9 +20,9 @@ I just used competitions, matches and events data for this project.
 
 ## Problem description
 Basically, main purpose of this project is try to understand what happened in World Cup Qatar 2022 matches trough data. 
-1. Why Messi won the Golden ball?
-2. Why Morocco and Croatia had a great World cup performance based on their defense?
-3. What is the position with most stoppage injuries?
+1. Why did Messi win the World Cup Ballon d'Or?
+2. Why did Morocco and Croatia have a great performance in the World Cup based on their defense?
+3. What is the position with the most stoppage injuries?
 
 ## Project architecture
 Stats Bomb make available a Python library [statsbombpy](https://github.com/statsbomb/statsbombpy), to access data more easily. So that, I used data is pulled from there as source for this project.
