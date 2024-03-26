@@ -1,4 +1,4 @@
-# Fifa World Cup Qatar 2022 Analysis
+# Fifa World Cup Qatar 2022 Analysis⚽🥇
 <!--<p align="center">
   <img src="https://github.com/jeanpaulrd1/de-zc-final-project/assets/19482586/ece80d35-1db3-4591-9920-ccc62f4606f6" width="30%" align="center"/>
 </p>-->
@@ -17,6 +17,12 @@ I just used competitions, matches and events data for this project.
 <p align="center">
   <img src="https://github.com/jeanpaulrd1/de-zc-final-project/assets/19482586/d54aae73-a9c8-4cd9-9d70-a246ceb76422" width="30%" align="center"/>
 </p>
+
+## Problem description
+Basically, main purpose of this project is try to understand what happened in World Cup Qatar 2022 matches trough data. 
+1. Why Messi won the Golden ball?
+2. Why Morocco and Croatia had a great World cup performance based on their defense?
+3. What is the position with most stoppage injuries?
 
 ## Project architecture
 Stats Bomb make available a Python library [statsbombpy](https://github.com/statsbomb/statsbombpy), to access data more easily. So that, I used data is pulled from there as source for this project.
