@@ -128,8 +128,9 @@ models:
       - name: shot_statsbomb_xg
         data_type: numeric
         description: "shot expected goals measure"
+
   - name: dm_events_per_player
-    description:
+    description: >
     
   - name: dm_events_per_match
-    description:
+    description: >
