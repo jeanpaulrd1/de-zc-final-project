@@ -44,7 +44,7 @@ Grant the following roles to service account:
 - Viewer
 - Storage Admim
 - Storage Object Admin
-- BigQuery Admin.
+- BigQuery Admin
 <p align="center">
   <img src="https://github.com/jeanpaulrd1/de-zc-final-project/assets/19482586/002f1030-3607-4258-8ff0-465601d13ff8" height="50%" align="center"/>
 </p>
@@ -55,3 +55,43 @@ Click continue and navigate to the right side three dots and click on manage key
   <img src="https://github.com/jeanpaulrd1/de-zc-final-project/assets/19482586/d40d6095-67ad-43d7-8158-8fc21024e5ad" height="50%" align="center"/>
 </p>
 
+## Setup VM SSH Access
+Open a terminal in your pc and run the following command:
+```bash
+ssh-keygen -t rsa -f ~/.ssh/vm-gcp -C jeanpaul -b 2048
+```
+Once you have key generated, check the pub file content and copy to your clipboard.
+Go to Metadata, click Add SSH Key, copy pub file content there and finally save it.
+<p align="center">
+  <img src="https://github.com/jeanpaulrd1/de-zc-final-project/assets/19482586/a4571b5f-febc-48f4-be03-c3256d29c0a0" height="50%" align="center"/>
+</p>
+
+Create a config file into .ssh path and copy the following content:
+```bash
+Host <VM name>
+    HostName <public IP address>
+    User <user name defined on your pub file>
+    IdentityFile <private key path>
+```
+
+## Setup VM
+One you have all the configurations done.
+1. Connect to VM using following command:
+```bash
+ssh <VM name>
+```
+2. Run
+```bash
+sudo apt-get update
+```
+3. Clone project repo
+```bash
+git clone https://github.com/jeanpaulrd1/de-zc-final-project.git
+```
+4. Make new directory to stored credentials json file that we had previously downloaded.
+```bash
+mkdir -p .gcp/credentials
+```
+Move the credentials file we downloaded before.
+5. 
+6. df
