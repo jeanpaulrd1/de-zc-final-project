@@ -73,6 +73,20 @@ Host <VM name>
     User <user name defined on your pub file>
     IdentityFile <private key path>
 ```
+## Setup SSH access in Visual Studio 
+
+1. Install this extension
+<p align="center">
+  <img src="https://github.com/jeanpaulrd1/de-zc-final-project/assets/19482586/db22f086-e051-44c9-9ddc-d6b32374694d" height="50%" align="center"/>
+</p>
+2. Once you have the extension, go to the left hand corner and click on the following blue icon
+<p align="center">
+  <img src="https://github.com/jeanpaulrd1/de-zc-final-project/assets/19482586/8862ad74-e762-4413-9ca8-64282d05c9c7" height="50%" align="center"/>
+</p>
+3. Then, choose Connect to Host and enter the name you gave the VM in the config file.
+<p align="center">
+  <img src="https://github.com/jeanpaulrd1/de-zc-final-project/assets/19482586/0f02262c-0675-4ce7-b1e4-f184116715d8" height="50%" align="center"/>
+</p>
 
 ## Setup VM
 One you have all the configurations done.
@@ -88,10 +102,34 @@ sudo apt-get update
 ```bash
 git clone https://github.com/jeanpaulrd1/de-zc-final-project.git
 ```
-4. Make new directory to stored credentials json file that we had previously downloaded.
+4. Make new directory, move there credentials json file that we had previously downloaded.
 ```bash
 mkdir -p .gcp/credentials
 ```
-Move the credentials file we downloaded before.
-5. 
-6. df
+5. Set environment variable to point to your downloaded GCP keys
+```bash
+export GOOGLE_APPLICATION_CREDENTIALS=~/<path/to/your/service-account-authkeys>.json
+
+# then run
+source .bashrc
+
+gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
+```
+
+## Setup Terraform
+1. Run the following commands:
+```bash
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+sudo apt-get update && sudo apt-get install terraform
+```
+2. Once Terraform is already installed, move to terraform project directory and edit project name
+<p align="center">
+  <img src="https://github.com/jeanpaulrd1/de-zc-final-project/assets/19482586/ab788601-f370-4584-9b80-506d5262944e" height="50%" align="center"/>
+</p>
+3. Then run
+```bash
+terraform init
+terraform apply
+```
+4. dfdf
