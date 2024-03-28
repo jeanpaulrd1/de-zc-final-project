@@ -96,6 +96,13 @@ FROM (SELECT foul_committed_card, match_id, team,away_team FROM {{ ref('fact_eve
 PIVOT ( 
 count(*) FOR foul_committed_card IN ('Red Card','Second Yellow','Yellow Card'))
 WHERE team = away_team
+),
+match_scores AS(
+    SELECT DISTINCT
+         match_id
+        ,home_score
+        ,away_score
+    FROM prod_2022_fifa_wc.fact_events
 )
 SELECT 
    hto.match_id
@@ -104,7 +111,7 @@ SELECT
    ,hto.saved_shot as saved_shots_home_team
    ,hto.blocked_shot as blocked_shots_home_team
    ,hto.off_target_shot as off_target_shots_home_team
-   ,hto.goal_shot as goal_shots_home_team
+   ,ms.home_score as goal_shots_home_team
    ,hto.post_shot as post_shots_home_team
    ,hto.wayward_shot as wayward_shots_home_team
    ,hto.saved_off_target_shot as saved_off_target_shots_home_team
@@ -112,7 +119,7 @@ SELECT
    ,ato.saved_shot as saved_shots_away_team
    ,ato.blocked_shot as blocked_shots_away_team
    ,ato.off_target_shot as off_target_shots_away_team
-   ,ato.goal_shot as goal_shots_away_team
+   ,ms.away_score as goal_shots_away_team
    ,ato.post_shot as post_shots_away_team
    ,ato.wayward_shot as wayward_shots_away_team
    ,ato.saved_off_target_shot as saved_off_target_shots_away_team
@@ -130,4 +137,5 @@ JOIN away_team_shout_outcome ato on hto.match_id = ato.match_id
 JOIN home_team_fouls htf on htf.match_id = ato.match_id 
 JOIN away_team_fouls atf on atf.match_id = ato.match_id 
 JOIN home_team_cards htc on htc.match_id = ato.match_id 
-JOIN away_team_cards atc on atc.match_id = ato.match_id 
+JOIN away_team_cards atc on atc.match_id = ato.match_id
+JOIN match_scores ms on ms.match_id = ato.match_id
