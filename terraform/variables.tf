@@ -1,12 +1,6 @@
-variable "credentials" {
-  description = "My Credentials"
-  default     = "./keys/my-creds.json"
-}
-
-
 variable "project" {
   description = "Project"
-  default     = "airy-digit-410117"
+  default     = "de-final-project-418421"
 }
 
 variable "region" {
@@ -26,7 +20,7 @@ variable "bq_dataset_name" {
 
 variable "gcs_bucket_name" {
   description = "Bucket Name to store raw data"
-  default     = "fifa_wc_2022_bucket"
+  default     = "fifa_wc_2022_bucket_2"
 }
 
 variable "gcs_storage_class" {

@@ -1,0 +1,235 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: data_loaders/get_competitions_json_from_api.py
+  downstream_blocks:
+  - upload_competitions_to_gcs
+  - transform_competitions
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: get_competitions_json_from_api
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: get_competitions_json_from_api
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - get_events_json_from_api
+  - transform_matches
+  - upload_matches_to_gcs
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: get_matches_json_from_api
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: get_matches_json_from_api
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - load_matches_to_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: transform_matches
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - get_matches_json_from_api
+  uuid: transform_matches
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - transform_events
+  - upload_events_to_gcs
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: get_events_json_from_api
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - get_matches_json_from_api
+  uuid: get_events_json_from_api
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: upload_competitions_to_gcs
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - get_competitions_json_from_api
+  uuid: upload_competitions_to_gcs
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: upload_matches_to_gcs
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - get_matches_json_from_api
+  uuid: upload_matches_to_gcs
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: upload_events_to_gcs
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - get_events_json_from_api
+  uuid: upload_events_to_gcs
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - load_events_to_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: transform_events
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - get_events_json_from_api
+  uuid: transform_events
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: transformers/transform_competitions.py
+  downstream_blocks:
+  - load_competitions_to_bq
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: transform_competitions
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - get_competitions_json_from_api
+  uuid: transform_competitions
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_competitions_to_bq
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - transform_competitions
+  uuid: load_competitions_to_bq
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_events_to_bq
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - transform_events
+  uuid: load_events_to_bq
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    data_provider: bigquery
+    data_provider_database: ''
+    data_provider_profile: default
+    data_provider_schema: fifa_wc_2022
+    export_write_policy: replace
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_matches_to_bq
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - transform_matches
+  uuid: load_matches_to_bq
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-02-29 01:11:28.269666+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: get_fifa_2022_wc_data
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+updated_at: '2024-03-25 21:59:10'
+uuid: get_fifa_2022_wc_data
+variables_dir: /home/src/mage_data/magic-zoomcamp
+widgets: []
