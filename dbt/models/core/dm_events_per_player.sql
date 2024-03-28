@@ -30,6 +30,15 @@ FROM (SELECT shot_outcome, player, player_id, team FROM {{ ref('fact_events') }}
 PIVOT ( 
     count(*) FOR shot_outcome IN ('Saved','Blocked','Off T','Goal','Post','Wayward','Saved Off Target','Saved to Post'))
  ),
+ assists_per_player AS(
+    SELECT 
+    player
+    ,player_id
+    ,`true` as goal_assist
+FROM (SELECT pass_goal_assist, player, player_id, team FROM {{ ref('fact_events') }}) 
+PIVOT ( 
+count(*) FOR pass_goal_assist IN (true))
+ ),
 event_type_per_player AS(
 SELECT 
     player
@@ -110,8 +119,10 @@ SELECT
     ,cp.second_yellow_card
     ,cp.red_card
     ,pp.position
+    ,ap.goal_assist
 FROM shout_outcome_per_player so
 JOIN event_type_per_player et on so.player_id = et.player_id
 JOIN duel_outcome_per_player dp on so.player_id = dp.player_id
 JOIN card_per_player cp on cp.player_id = so.player_id
 JOIN player_positions pp on et.player_id = pp.player_id
+LEFT JOIN assists_per_player ap on et.player_id = ap.player_id
