@@ -49,4 +49,18 @@ Here we have 5 tiles:
 - Defensive actions per player: A quick summary of defensive actions per player including Interceptions, Clearance, Pressure and Ball recovery
 - Fouls and card per player: Looking for most dirtiest players during Fifa World Cup Qatar 2022.
   
-![image](https://github.com/jeanpaulrd1/de-zc-final-project/assets/19482586/ab5f0178-546d-4fd7-94ee-9854414dad37)
+![image](https://github.com/jeanpaulrd1/de-zc-final-project/assets/19482586/6afc967e-1c80-48b0-af0d-47027d220501)
+
+## Reproduce project
+
+If you want to reproduce the project, you can find all the steps [here](https://github.com/jeanpaulrd1/de-zc-final-project/blob/main/reproduce.md)
+
+## Conclusion
+Just to answer previously asked questions
+1. Why did Messi win the World Cup Ballon d'Or?
+   The panel shows us Messi's direct influence on goals and assists throughout the World Cup, in reality he has the same amount as Mbappé, but he won the cup and that gives him an advantage.
+2. Why did Morocco and Croatia have a great performance in the World Cup based on their defense?
+   If we take a look Defensive actions and fould and cards tiles, we can notice that most of the players there are from Croatia and Morocoo, so it gives you an idea of what a great defensive performance both teams had during the World Cup and that led them to got 3rd   
+   and 4th place respectively.
+3. What is the position with the most stoppage injuries?
+   We can notice that the most common position in the stoppage injuries tile is goalkeeper, it gives you an idea that it is a common time wasting strategy by the goalkeepers.
